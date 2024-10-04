@@ -1,3 +1,6 @@
+//File > Project Structure > Project Settings > Libraries > + > From Maven > com.opencsv
+//csv file goes in project folder (not src)
+
 import com.opencsv.CSVReader;
 
 import java.io.FileReader;
