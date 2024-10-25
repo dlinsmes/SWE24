@@ -12,9 +12,9 @@ public class YelpAPIDemo {
         try {
             HttpClient client = HttpClient.newHttpClient();
 
-            String API_KEY = "";
+            String API_KEY = "TsghMGkJt7cGjWSDIhlaEyR93TIQwBL13ORyp_8yLJ80muvvgD10_jDwGxJzhya8vs60Qt0_lXllh8SaMn2T6L0jsTxPQI1_9u4cKnnBl_scK8qvrBn4RR6WMBM7Y3Yx";
 
-            String term = "taco";
+            String term = "mcdonalds";
             String location = "San%20juan%20capistrano"; //%20 for spaces
 
             //build query request uri
@@ -70,7 +70,7 @@ public class YelpAPIDemo {
             //System.out.println(businesses.get(0).get("name"));
 
             //the array holds JSON objects - need to cast
-            JSONObject b0 = (JSONObject) businesses.get(0);
+            JSONObject b0 = (JSONObject) businesses.get(10);
 
             //get the name of the 0th business - has curly braces
             System.out.println(b0);
@@ -78,6 +78,30 @@ public class YelpAPIDemo {
             System.out.println(b0.get("name"));
 
             System.out.println("number of results: " + businesses.length());
+
+            //save business name to a string variable
+            //String n = b0.get("name");
+
+            //get() returns an object - use getType()
+            String n = b0.getString("name");
+
+            //use debugger to see attributes and organization of b0
+
+            //check if an object has a particular attribute:
+            if (b0.has("image_url")) {
+                System.out.println(b0.get("image_url"));
+            }
+
+
+            //loop through each object in businesses and print each name and rating
+            for (int i = 0; i < businesses.length(); i++) {
+                JSONObject j = (JSONObject) businesses.get(i);
+//                System.out.println(j.get("name") + " - " + j.get("rating"));
+
+                YelpRestaurant r = new YelpRestaurant(j);
+                System.out.println(r);
+            }
+
         }
 
         catch(Exception e) {
