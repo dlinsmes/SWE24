@@ -93,8 +93,10 @@ public class YelpAPIDemo {
             }
 
 
-            //loop through each object in businesses and print each name and rating
+            //loop through each object in businesses
             for (int i = 0; i < businesses.length(); i++) {
+                //JSONObject j = businesses.getJSONObject(i);
+                //same as
                 JSONObject j = (JSONObject) businesses.get(i);
 //                System.out.println(j.get("name") + " - " + j.get("rating"));
 
