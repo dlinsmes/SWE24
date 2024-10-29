@@ -14,10 +14,11 @@ public class SpotifyAPIDemo {
             String client_id = "";
             String client_secret = "";
 
-            //build query request uri
+            //https://developer.spotify.com/documentation/web-api/tutorials/getting-started#request-an-access-token
+            //https://openjdk.org/groups/net/httpclient/recipes.html#post
+
             URI uri = new URI("https://accounts.spotify.com/api/token");
 
-            //send the request to the url with the API key for authorization
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(uri)
                     .POST(HttpRequest.BodyPublishers.ofString("grant_type=client_credentials&client_id=" + client_id + "&client_secret=" + client_secret))
@@ -25,12 +26,7 @@ public class SpotifyAPIDemo {
                     .build();
 
             HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-
-            //response code - tells you if there are any errors
             System.out.println(response);
-
-            //string of the response body - all the information provided
-            //by your request
             System.out.println(response.body());
         } catch (Exception e) {
             e.printStackTrace();
