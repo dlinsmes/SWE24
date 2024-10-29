@@ -12,7 +12,7 @@ public class YelpAPIDemo {
         try {
             HttpClient client = HttpClient.newHttpClient();
 
-            String API_KEY = "TsghMGkJt7cGjWSDIhlaEyR93TIQwBL13ORyp_8yLJ80muvvgD10_jDwGxJzhya8vs60Qt0_lXllh8SaMn2T6L0jsTxPQI1_9u4cKnnBl_scK8qvrBn4RR6WMBM7Y3Yx";
+            String API_KEY = "";
 
             String term = "mcdonalds";
             String location = "San%20juan%20capistrano"; //%20 for spaces
